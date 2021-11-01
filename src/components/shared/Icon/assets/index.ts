@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react';
 import { Cart } from './Cart';
 import { Close } from './Close';
 import { Delete } from './Delete';
@@ -23,7 +22,6 @@ type IColors =
 export type IIconProps = {
   size?: ISizes;
   color?: IColors;
-  style?: CSSProperties;
 };
 
 export type IIConsList =
@@ -36,7 +34,7 @@ export type IIConsList =
   | 'Plus'
   | 'Previous';
 type IRegisteredIcons = {
-  [key in IIConsList]: React.FC<Required<Omit<IIconProps, 'style'>>>;
+  [key in IIConsList]: React.FC<Required<IIconProps>>;
 };
 
 export const registeredIcons: IRegisteredIcons = {

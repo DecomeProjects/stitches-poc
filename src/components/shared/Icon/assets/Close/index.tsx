@@ -1,13 +1,10 @@
 import React from 'react';
 import { IIconProps } from '..';
-import { tokenize } from '../../../../../styles/config';
+import { tokenize } from '../../../../../styles';
 
 import { Path, Svg } from '../styles';
 
-export const Close: React.FC<Required<Omit<IIconProps, 'style'>>> = ({
-  size,
-  color,
-}) => (
+export const Close: React.FC<Required<IIconProps>> = ({ size, color }) => (
   <Svg
     css={{
       width: tokenize(size),

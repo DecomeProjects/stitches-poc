@@ -1,11 +1,13 @@
 import React, { useMemo } from 'react';
-import { tokenize } from '../../../styles/config';
+import { tokenize, StitchesConfigCSS } from '../../../styles';
+
 import { IIconProps, IIConsList, registeredIcons } from './assets';
 
 import { Container } from './styles';
 
 type IExtendedIconProps = IIconProps & {
   icon: IIConsList;
+  css?: StitchesConfigCSS;
 };
 
 export const Icon: React.FC<IExtendedIconProps> = ({
