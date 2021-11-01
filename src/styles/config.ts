@@ -53,7 +53,7 @@ const { styled, globalCss, createTheme, css, keyframes } = createStitches({
       rounded: '50%',
     },
 
-    sizes: {
+    space: {
       xl: '3rem',
       lg: '2rem',
       md: '1.5rem',

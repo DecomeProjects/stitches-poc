@@ -13,12 +13,20 @@ export const globalStyle = globalCss({
 
   body: {
     backgroundColor: '$lightGrayishBlue',
-    color: '$black',
+    color: '$darkBlue',
     '-webkit-font-smoothing': 'antialiased',
   },
 
   'body, input, textarea, button': {
     fontFamily: '$default',
     fontSize: '$base',
+  },
+
+  button: {
+    cursor: 'pointer',
+  },
+
+  a: {
+    color: 'inherit',
   },
 });
