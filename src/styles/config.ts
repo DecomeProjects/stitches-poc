@@ -16,6 +16,8 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
 
         white: 'hsl(0, 0%, 100%)',
         black: 'hsl(0, 0%, 0%)',
+
+        transparent: 'transparent',
       },
 
       fontSizes: {
@@ -63,6 +65,8 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
         base: '1rem',
         tiny: '0.875rem',
         sm: '0.75rem',
+        xs: 'o.625rem',
+        none: 0,
       },
 
       space: {
@@ -73,6 +77,7 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
         tiny: '0.75rem',
         sm: '0.5rem',
         xs: '0.25rem',
+        none: 0,
       },
     },
 

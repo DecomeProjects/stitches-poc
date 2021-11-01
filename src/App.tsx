@@ -1,10 +1,18 @@
 import React from 'react';
+import { IconButton } from './components/shared/IconButton';
 import { globalStyle } from './styles';
 
 const App: React.FC = () => {
   globalStyle();
 
-  return <h1>Olá mundo!</h1>;
+  return (
+    <IconButton
+      icon="Cart"
+      tooltip="1"
+      iconColor="darkGrayishBlue"
+      hoverIconColor="darkBlue"
+    />
+  );
 };
 
 export default App;
