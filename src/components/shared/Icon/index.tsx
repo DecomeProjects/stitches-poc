@@ -13,6 +13,7 @@ type IExtendedIconProps = IIconProps & {
 export const Icon: React.FC<IExtendedIconProps> = ({
   size = 'lg',
   color = 'darkBlue',
+  css,
   icon,
 }) => {
   const SvgIcon = useMemo(() => registeredIcons[icon], [icon]);
@@ -22,6 +23,7 @@ export const Icon: React.FC<IExtendedIconProps> = ({
       css={{
         width: tokenize(size),
         height: tokenize(size),
+        ...css,
       }}
     >
       <SvgIcon size={size} color={color} />
