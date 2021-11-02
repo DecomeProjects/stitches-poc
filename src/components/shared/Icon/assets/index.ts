@@ -13,20 +13,7 @@ export type IIconProps = {
   color?: IColors;
 };
 
-export type IIConsList =
-  | 'Cart'
-  | 'Close'
-  | 'Delete'
-  | 'Menu'
-  | 'Minus'
-  | 'Next'
-  | 'Plus'
-  | 'Previous';
-type IRegisteredIcons = {
-  [key in IIConsList]: React.FC<Required<IIconProps>>;
-};
-
-export const registeredIcons: IRegisteredIcons = {
+export const registeredIcons = {
   Cart,
   Close,
   Delete,
@@ -36,3 +23,5 @@ export const registeredIcons: IRegisteredIcons = {
   Plus,
   Previous,
 };
+
+export type IIConsList = keyof typeof registeredIcons;
