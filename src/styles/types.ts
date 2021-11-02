@@ -1,25 +1,14 @@
 import { CSS } from '@stitches/react';
 import { config } from './config';
 
-export type IStitchesConfigCSS = CSS<typeof config>;
+type IConfig = typeof config;
 
-export type ISizes =
-  | 'xl'
-  | 'lg'
-  | 'md'
-  | 'base'
-  | 'tiny'
-  | 'sm'
-  | 'xs'
-  | 'none';
+export type IStitchesConfigCSS = CSS<IConfig>;
 
-export type IColors =
-  | 'orange'
-  | 'paleOrange'
-  | 'darkBlue'
-  | 'darkGrayishBlue'
-  | 'grayishBlue'
-  | 'lightGrayishBlue'
-  | 'white'
-  | 'black'
-  | 'transparent';
+export type IFonts = keyof IConfig['theme']['fontSizes'];
+
+export type ISizes = keyof IConfig['theme']['sizes'];
+
+export type ISpaces = keyof IConfig['theme']['space'];
+
+export type IColors = keyof IConfig['theme']['colors'];
