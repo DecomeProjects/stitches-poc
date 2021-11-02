@@ -1,7 +1,8 @@
 import React from 'react';
-import { IIconProps } from '..';
-import { tokenize } from '../../../../../styles';
 
+import { tokenize } from '@/styles';
+
+import { IIconProps } from '..';
 import { Path, Svg } from '../styles';
 
 export const Plus: React.FC<Required<IIconProps>> = ({ size, color }) => (
