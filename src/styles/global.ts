@@ -1,4 +1,11 @@
+import { styled } from '.';
 import { globalCss } from './config';
+
+export const ButtonReset = styled('button', {
+  cursor: 'pointer',
+  border: 0,
+  background: 'transparent',
+});
 
 export const globalStyle = globalCss({
   '*': {

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { tokenize, StitchesConfigCSS } from '../../../styles';
+import { tokenize, IStitchesConfigCSS } from '../../../styles';
 
 import { IIconProps, IIConsList, registeredIcons } from './assets';
 
@@ -7,7 +7,7 @@ import { Container } from './styles';
 
 type IExtendedIconProps = IIconProps & {
   icon: IIConsList;
-  css?: StitchesConfigCSS;
+  css?: IStitchesConfigCSS;
 };
 
 export const Icon: React.FC<IExtendedIconProps> = ({
