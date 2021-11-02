@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { tokenize, IStitchesConfigCSS } from '../../../styles';
+
+import { tokenize, IStitchesConfigCSS } from '@/styles';
 
 import { IIconProps, IIConsList, registeredIcons } from './assets';
 

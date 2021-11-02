@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
+import { IColors, ISizes, IStitchesConfigCSS } from '@/styles';
+
 import { Icon } from '../Icon';
 import { IIConsList } from '../Icon/assets';
-
-import { IColors, ISizes, IStitchesConfigCSS } from '../../../styles';
 
 import { Container, Tooltip } from './styles';
 

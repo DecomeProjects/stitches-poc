@@ -1,4 +1,4 @@
-import { ButtonReset, styled } from '../../../styles';
+import { ButtonReset, styled } from '@/styles';
 
 export const Container = styled(ButtonReset, {
   position: 'relative',
