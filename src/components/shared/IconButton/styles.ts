@@ -8,11 +8,15 @@ export const Tooltip = styled('span', {
   position: 'absolute',
   top: '-$xs',
   right: '-$sm',
-  padding: '1px $sm',
-  background: '$orange',
+
+  height: '$tiny',
+  width: '$md',
+
   color: '$white',
+  background: '$orange',
   borderRadius: '$md',
 
   fontSize: '$sm',
-  lineHeight: '0.625rem',
+  fontWeight: '$bold',
+  lineHeight: '0.875rem',
 });
