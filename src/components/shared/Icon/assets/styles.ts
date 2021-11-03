@@ -1,4 +1,4 @@
-import { styled } from '@/styles';
+import { styled } from '@Styles';
 
 export const Svg = styled('svg', {
   transition: 'fill 0.2s, stroke 0.2s',
