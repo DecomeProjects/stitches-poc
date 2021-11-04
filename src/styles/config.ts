@@ -45,7 +45,7 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
 
       letterSpacings: {
         widest: '0.075em',
-        wider: '0.4px',
+        wider: '0.04em',
         wide: '0.02em',
         normal: '0.005em',
         tight: '0em',
