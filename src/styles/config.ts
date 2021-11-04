@@ -21,14 +21,10 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
       },
 
       fontSizes: {
-        xxl: '3rem',
-        xl: '2rem',
-        lg: '1.5rem',
-        md: '1.25rem',
-        base: '1rem',
-        tiny: '0.875rem',
-        sm: '0.75rem',
-        xs: '0.625rem',
+        xl: '2.625rem', // 42px
+        lg: '1.75rem', // 28px
+        base: '1rem', // 16px
+        sm: '0.875rem', // 14px
       },
 
       fontWeights: {
@@ -40,14 +36,19 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
         default: "'Kumbh Sans', sans-serif",
       },
 
+      lineHeights: {
+        xl: '3rem', // 48px
+        lg: '2rem', // 32px
+        base: '1.625rem', // 26px
+        sm: '1.25rem', // 20px
+      },
+
       letterSpacings: {
-        widest: '1.5px',
-        wider: '0.5px',
-        wide: '0.4px',
-        normal: '0.25px',
-        tight: '0.15px',
-        tighter: '0.1px',
-        tightest: '0px',
+        widest: '0.075em',
+        wider: '0.4px',
+        wide: '0.02em',
+        normal: '0.005em',
+        tight: '0em',
       },
 
       radii: {
@@ -70,9 +71,9 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
       },
 
       space: {
-        xl: '3rem',
-        lg: '2rem',
-        md: '1.5rem',
+        xl: '2rem',
+        lg: '1.5rem',
+        md: '1.25rem',
         base: '1rem',
         tiny: '0.75rem',
         sm: '0.5rem',
