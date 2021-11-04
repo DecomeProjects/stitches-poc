@@ -5,7 +5,13 @@ type IConfig = typeof config;
 
 export type IStitchesConfigCSS = CSS<IConfig>;
 
-export type IFonts = keyof IConfig['theme']['fontSizes'];
+export type IFontSizes = keyof IConfig['theme']['fontSizes'];
+
+export type IFontWeights = keyof IConfig['theme']['fontWeights'];
+
+export type ILineHeights = keyof IConfig['theme']['lineHeights'];
+
+export type ILetterSpacings = keyof IConfig['theme']['letterSpacings'];
 
 export type ISizes = keyof IConfig['theme']['sizes'];
 

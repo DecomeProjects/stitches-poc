@@ -1,4 +1,4 @@
-import { IColors, ISizes } from '@/styles';
+import { IColors, ISizes } from '@Styles';
 
 import { Cart } from './Cart';
 import { Close } from './Close';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { tokenize } from '@/styles';
+import { tokenize } from '@Styles';
 
 import { IIconProps } from '..';
 import { Path, Svg } from '../styles';

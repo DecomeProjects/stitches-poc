@@ -1,3 +1,3 @@
-import { styled } from '@/styles';
+import { styled } from '@Styles';
 
 export const Container = styled('div', {});
