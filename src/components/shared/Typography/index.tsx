@@ -10,25 +10,36 @@ import {
   tokenize,
 } from '@Styles';
 
+import { ITypographyTagMappings, ITypographyTags } from './types';
+
 import { Container } from './styles';
 
-type ITypography = {
+const tagMappings: ITypographyTagMappings = {
+  xl: 'h1',
+  lg: 'h3',
+  base: 'p',
+  sm: 'span',
+};
+
+type ITypographyProps = {
   color?: IColors;
   size?: IFontSizes;
   weight?: IFontWeights;
   lineHeight?: ILineHeights;
   letterSpacing?: ILetterSpacings;
+  tag?: ITypographyTags;
   lineThrough?: boolean;
   uppercase?: boolean;
   css?: IStitchesConfigCSS;
 };
 
-export const Typography: React.FC<ITypography> = ({
+export const Typography: React.FC<ITypographyProps> = ({
   color = 'darkBlue',
   size = 'base',
   weight = 'regular',
   lineHeight,
   letterSpacing = 'normal',
+  tag,
   lineThrough = false,
   uppercase = false,
   css,
@@ -36,6 +47,7 @@ export const Typography: React.FC<ITypography> = ({
 }) => {
   return (
     <Container
+      as={tag || tagMappings[size]}
       css={{
         color: tokenize(color),
         fontSize: tokenize(size),
