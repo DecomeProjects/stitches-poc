@@ -7,6 +7,7 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
     theme: {
       colors: {
         orange: 'hsl(26, 100%, 55%)',
+        lightOrange: 'hsl(25, 93%, 77%)',
         paleOrange: 'hsl(25, 100%, 94%)',
 
         darkBlue: 'hsl(220, 13%, 13%)',

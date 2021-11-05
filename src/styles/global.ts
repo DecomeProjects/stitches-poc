@@ -19,7 +19,7 @@ export const globalStyle = globalCss({
   },
 
   body: {
-    backgroundColor: '$lightGrayishBlue',
+    backgroundColor: '$white',
     color: '$darkBlue',
     '-webkit-font-smoothing': 'antialiased',
   },

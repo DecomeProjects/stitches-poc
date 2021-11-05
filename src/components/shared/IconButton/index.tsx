@@ -1,4 +1,9 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, {
+  ButtonHTMLAttributes,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 
 import { IColors, ISizes, IStitchesConfigCSS } from '@Styles';
 
@@ -7,9 +12,9 @@ import { IIConsList } from '../Icon/assets';
 
 import { Container, Tooltip } from './styles';
 
-type IIconButtonProps = {
+type IIconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   icon: IIConsList;
-  tooltip: string;
+  tooltip?: string;
   css?: IStitchesConfigCSS;
   size?: ISizes;
   iconColor?: IColors;
@@ -23,6 +28,7 @@ export const IconButton: React.FC<IIconButtonProps> = ({
   size = 'lg',
   iconColor = 'darkGrayishBlue',
   hoverIconColor = 'darkBlue',
+  ...rest
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -36,6 +42,7 @@ export const IconButton: React.FC<IIconButtonProps> = ({
 
   return (
     <Container
+      {...rest}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
       css={{
@@ -43,7 +50,7 @@ export const IconButton: React.FC<IIconButtonProps> = ({
       }}
     >
       <Icon icon={icon} color={actualIconColor} size={size} />
-      <Tooltip>{tooltip}</Tooltip>
+      {tooltip && <Tooltip>{tooltip}</Tooltip>}
     </Container>
   );
 };
