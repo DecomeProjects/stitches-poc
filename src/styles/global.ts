@@ -14,6 +14,17 @@ export const globalStyle = globalCss({
     boxSizing: 'border-box',
   },
 
+  '#modal_container': {
+    position: 'absolute',
+    inset: 0,
+
+    pointerEvents: 'none',
+
+    '> *': {
+      pointerEvents: 'all',
+    },
+  },
+
   ':root': {
     fontSize: '100%',
   },
