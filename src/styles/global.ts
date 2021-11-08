@@ -14,11 +14,19 @@ export const globalStyle = globalCss({
     boxSizing: 'border-box',
   },
 
-  '#modal_container': {
+  '.portal_container': {
     position: 'absolute',
     inset: 0,
 
     pointerEvents: 'none',
+
+    '&#modal_container': {
+      zIndex: 998,
+    },
+
+    '&#navbar_container': {
+      zIndex: 999,
+    },
 
     '> *': {
       pointerEvents: 'all',
