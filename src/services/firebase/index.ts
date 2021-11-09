@@ -3,6 +3,8 @@ import { getAnalytics } from 'firebase/analytics';
 
 import { firebaseConfig } from './config';
 
-export const app = initializeApp(firebaseConfig);
+if (process.env.NODE_ENV !== 'development') {
+  const app = initializeApp(firebaseConfig);
 
-export const analytics = getAnalytics(app);
+  getAnalytics(app);
+}
