@@ -26,6 +26,7 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
         lg: '1.75rem', // 28px
         base: '1rem', // 16px
         sm: '0.875rem', // 14px
+        xs: '0.75rem', // 12px
       },
 
       fontWeights: {
@@ -49,7 +50,7 @@ const { styled, globalCss, createTheme, css, keyframes, theme, config } =
         wider: '0.04em',
         wide: '0.02em',
         normal: '0.005em',
-        tight: '0em',
+        tight: '-0.025em',
       },
 
       radii: {

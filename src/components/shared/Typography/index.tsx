@@ -19,6 +19,7 @@ const tagMappings: ITypographyTagMappings = {
   lg: 'h3',
   base: 'p',
   sm: 'span',
+  xs: 'span',
 };
 
 type ITypographyProps = {
