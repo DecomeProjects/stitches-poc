@@ -47,6 +47,7 @@ const BaseNumberInput: ForwardRefRenderFunction<
   return (
     <Container role="spinbutton" fluid={fluid}>
       <IconButton
+        type="button"
         icon="Minus"
         iconColor="lightOrange"
         hoverIconColor="orange"
@@ -68,6 +69,7 @@ const BaseNumberInput: ForwardRefRenderFunction<
       </Typography>
 
       <IconButton
+        type="button"
         icon="Plus"
         iconColor="lightOrange"
         hoverIconColor="orange"
