@@ -17,13 +17,13 @@ type INumberInputProps = InputHTMLAttributes<HTMLInputElement> & {
   min?: number;
   max?: number;
   fluid?: boolean;
-  onChange?: (value: number) => void;
+  handleChange?: (value: number) => void;
 };
 
 const BaseNumberInput: ForwardRefRenderFunction<
   HTMLInputElement,
   INumberInputProps
-> = ({ name, min = 0, max, fluid = false, onChange, ...rest }, ref) => {
+> = ({ name, min = 0, max, fluid = false, handleChange, ...rest }, ref) => {
   const [value, setValue] = useState(min);
 
   const add = useCallback(() => {
@@ -41,8 +41,8 @@ const BaseNumberInput: ForwardRefRenderFunction<
   }, [min, value]);
 
   useEffect(() => {
-    if (onChange) onChange(value);
-  }, [value, onChange]);
+    if (handleChange) handleChange(value);
+  }, [value, handleChange]);
 
   return (
     <Container role="spinbutton" fluid={fluid}>
