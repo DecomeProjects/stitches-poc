@@ -1,19 +1,14 @@
-import { Details } from '@Components/Details';
-import { Header } from '@Components/Header';
 import React from 'react';
-import { globalStyle } from './styles';
-
 import './services/firebase';
+
+import { Overview } from '@Pages/Overview';
+
+import { globalStyle } from './styles';
 
 const App: React.FC = () => {
   globalStyle();
 
-  return (
-    <>
-      <Header />
-      <Details />
-    </>
-  );
+  return <Overview />;
 };
 
 export default App;

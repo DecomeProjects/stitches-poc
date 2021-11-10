@@ -8,6 +8,12 @@
       "@Components": ["components"],
       "@Components/*": ["components/*"],
 
+      "@Pages": ["pages"],
+      "@Pages/*": ["pages/*"],
+
+      "@Services": ["services"],
+      "@Services/*": ["services/*"],
+
       "@Styles": ["styles"],
       "@Styles/*": ["styles/*"],
 

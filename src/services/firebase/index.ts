@@ -1,10 +1,14 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
+/**
+ * Firebase Analytics
+ */
+export * from './analytics';
 
-import { firebaseConfig } from './config';
+/**
+ * Firebase App
+ */
+export * from './app';
 
-if (process.env.NODE_ENV !== 'development') {
-  const app = initializeApp(firebaseConfig);
-
-  getAnalytics(app);
-}
+/**
+ * Firebase Config
+ */
+export * from './config';
