@@ -4,7 +4,7 @@ export const Container = styled('section', {
   display: 'flex',
   flexDirection: 'column',
 
-  padding: '$lg',
+  padding: '$lg $lg 5.5rem',
 });
 
 export const PaymentInfo = styled('div', {
