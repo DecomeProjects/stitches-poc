@@ -8,6 +8,7 @@ export type IItem = {
 
 export type ICartContextData = {
   items: IItem[];
+  isEmpty: boolean;
   add: (item: IItem) => void;
   remove: (id: string) => void;
 };

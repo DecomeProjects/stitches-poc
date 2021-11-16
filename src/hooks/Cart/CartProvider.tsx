@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { CartContext } from './context';
 
@@ -6,6 +6,8 @@ import { IItem } from './types';
 
 export const CartProvider: React.FC = ({ children }) => {
   const [items, setItems] = useState<IItem[]>([]);
+
+  const isEmpty = useMemo(() => !items.length, [items]);
 
   const add = useCallback(
     (item: IItem) => {
@@ -26,7 +28,7 @@ export const CartProvider: React.FC = ({ children }) => {
   );
 
   return (
-    <CartContext.Provider value={{ items, add, remove }}>
+    <CartContext.Provider value={{ items, isEmpty, add, remove }}>
       {children}
     </CartContext.Provider>
   );
