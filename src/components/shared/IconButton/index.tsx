@@ -1,5 +1,6 @@
 import React, {
   ButtonHTMLAttributes,
+  forwardRef,
   useCallback,
   useMemo,
   useState,
@@ -21,15 +22,21 @@ type IIconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   hoverIconColor?: IColors;
 };
 
-export const IconButton: React.FC<IIconButtonProps> = ({
-  icon,
-  tooltip,
-  css,
-  size = 'lg',
-  iconColor = 'darkGrayishBlue',
-  hoverIconColor = 'darkBlue',
-  ...rest
-}) => {
+const IconButtonBase: React.ForwardRefRenderFunction<
+  HTMLButtonElement,
+  IIconButtonProps
+> = (
+  {
+    icon,
+    tooltip,
+    css,
+    size = 'lg',
+    iconColor = 'darkGrayishBlue',
+    hoverIconColor = 'darkBlue',
+    ...rest
+  },
+  ref,
+) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const actualIconColor = useMemo<IColors>(() => {
@@ -42,6 +49,7 @@ export const IconButton: React.FC<IIconButtonProps> = ({
 
   return (
     <Container
+      ref={ref}
       {...rest}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
@@ -54,3 +62,5 @@ export const IconButton: React.FC<IIconButtonProps> = ({
     </Container>
   );
 };
+
+export const IconButton = forwardRef(IconButtonBase);
