@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback, useState } from 'react';
 import { logEvent } from 'firebase/analytics';
 
-import { useCart } from '@Hooks/Cart';
+import { useCart } from '@Hooks/useCart';
 
 import { analyticsInstance } from '@Services/firebase';
 
