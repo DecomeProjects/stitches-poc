@@ -34,7 +34,7 @@ export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
       left,
     } = target.getBoundingClientRect();
 
-    let spacingFromContainer = 24;
+    let spacingFromContainer = 32;
     const lateralSpacing = 8;
 
     const bottom = 0;
