@@ -38,6 +38,7 @@ export const globalStyle = globalCss({
   },
 
   body: {
+    position: 'relative',
     backgroundColor: '$white',
     color: '$darkBlue',
     '-webkit-font-smoothing': 'antialiased',

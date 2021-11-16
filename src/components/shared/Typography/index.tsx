@@ -31,6 +31,7 @@ type ITypographyProps = {
   tag?: ITypographyTags;
   lineThrough?: boolean;
   uppercase?: boolean;
+  truncated?: boolean;
   css?: IStitchesConfigCSS;
 };
 
@@ -43,6 +44,7 @@ export const Typography: React.FC<ITypographyProps> = ({
   tag,
   lineThrough = false,
   uppercase = false,
+  truncated = false,
   css,
   children,
 }) => {
@@ -59,6 +61,7 @@ export const Typography: React.FC<ITypographyProps> = ({
       }}
       lineThrough={lineThrough}
       uppercase={uppercase}
+      truncated={truncated}
     >
       {children}
     </Container>

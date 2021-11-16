@@ -11,6 +11,8 @@ export const CartProvider: React.FC = ({ children }) => {
 
   const add = useCallback(
     (item: IItem) => {
+      if (!item.quantity) return;
+
       const alreadyOnCart = items.some(i => i.id === item.id);
 
       if (!alreadyOnCart) setItems(state => [...state, item]);

@@ -13,5 +13,14 @@ export const Container = styled('p', {
         textTransform: 'uppercase',
       },
     },
+
+    truncated: {
+      true: {
+        width: '100%',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      },
+    },
   },
 });
