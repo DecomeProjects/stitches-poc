@@ -8,6 +8,9 @@
       "@Components": ["components"],
       "@Components/*": ["components/*"],
 
+      "@Hooks": ["hooks"],
+      "@Hooks/*": ["hooks/*"],
+
       "@Pages": ["pages"],
       "@Pages/*": ["pages/*"],
 

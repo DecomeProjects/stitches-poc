@@ -1,7 +1,6 @@
 import React, { FormEvent, useCallback, useState } from 'react';
-import { logEvent } from 'firebase/analytics';
 
-import { analyticsInstance } from '@Services/firebase';
+import { useCart } from '@Hooks/useCart';
 
 import { Button } from '@Components/shared/Button';
 import { Chip } from '@Components/shared/Chip';
@@ -13,15 +12,13 @@ import { Container, Form, PaymentInfo } from './styles';
 export const Details: React.FC = () => {
   const [quantity, setQuantity] = useState(0);
 
+  const { add } = useCart();
+
   const handleSubmit = useCallback(
     (e: FormEvent) => {
       e.preventDefault();
       // eslint-disable-next-line no-console
       console.log(quantity);
-
-      logEvent(analyticsInstance, 'add_to_cart', {
-        items: [{ item_id: 'teste', quantity }],
-      });
     },
     [quantity],
   );
@@ -81,7 +78,21 @@ export const Details: React.FC = () => {
       <Form onSubmit={handleSubmit}>
         <NumberInput name="quantity" handleChange={handleOnChange} fluid />
 
-        <Button label="Add to cart" icon="Cart" fluid />
+        <Button
+          type="button"
+          onClick={() =>
+            add({
+              id: '1',
+              name: 'Autumn Limited Edition Sneakers',
+              discount: 0.5,
+              quantity,
+              value: 250,
+            })
+          }
+          label="Add to cart"
+          icon="Cart"
+          fluid
+        />
       </Form>
     </Container>
   );
