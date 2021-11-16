@@ -1,11 +1,13 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
-import { CartContext } from './context';
+import { useFirebase } from '@Hooks/useFirebase';
 
-import { IItem } from './types';
+import { CartContext, IItem } from '.';
 
 export const CartProvider: React.FC = ({ children }) => {
   const [items, setItems] = useState<IItem[]>([]);
+
+  const { logEvent } = useFirebase();
 
   const isEmpty = useMemo(() => !items.length, [items]);
 
@@ -15,18 +17,52 @@ export const CartProvider: React.FC = ({ children }) => {
 
       const alreadyOnCart = items.some(i => i.id === item.id);
 
-      if (!alreadyOnCart) setItems(state => [...state, item]);
+      if (!alreadyOnCart) {
+        setItems(state => [...state, item]);
+
+        logEvent('add_to_cart', {
+          currency: 'USD',
+          value: item.value * item.discount * item.quantity,
+          items: [
+            {
+              item_id: item.id,
+              item_name: item.name,
+              price: item.value,
+              discount: item.discount,
+              quantity: item.quantity,
+            },
+          ],
+        });
+      }
     },
-    [items],
+    [items, logEvent],
   );
 
   const remove = useCallback(
     (id: string) => {
-      const filteredItems = items.filter(item => item.id !== id);
+      const item = items.find(i => i.id === id);
 
-      setItems(filteredItems);
+      if (item) {
+        const filteredItems = items.filter(i => i.id !== id);
+
+        setItems(filteredItems);
+
+        logEvent('remove_from_cart', {
+          currency: 'USD',
+          value: item.value * item.discount * item.quantity,
+          items: [
+            {
+              item_id: item.id,
+              item_name: item.name,
+              price: item.value,
+              discount: item.discount,
+              quantity: item.quantity,
+            },
+          ],
+        });
+      }
     },
-    [items],
+    [items, logEvent],
   );
 
   return (
