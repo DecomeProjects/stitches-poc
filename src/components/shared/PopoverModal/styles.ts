@@ -20,6 +20,7 @@ export const ModalHeader = styled('header', {
 });
 
 export const ModalMain = styled('main', {
+  display: 'flex',
   padding: '$lg $lg $xl',
   minHeight: '11.75rem',
 });
