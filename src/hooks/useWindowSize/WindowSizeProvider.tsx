@@ -1,3 +1,4 @@
+import { useDebouncedCallback } from '@Hooks/useDebouncedCallback';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { WindowSizeContext } from '.';
@@ -21,11 +22,13 @@ export const WindowSizeProvider: React.FC = ({ children }) => {
     if (height !== innerHeight) setHeight(innerHeight);
   }, [width, height]);
 
-  useEffect(() => {
-    if (window) window.addEventListener('resize', handleWindowResize);
+  const debouncedResizeHandler = useDebouncedCallback(handleWindowResize, 200);
 
-    return () => window.removeEventListener('resize', handleWindowResize);
-  }, [handleWindowResize]);
+  useEffect(() => {
+    if (window) window.addEventListener('resize', debouncedResizeHandler);
+
+    return () => window.removeEventListener('resize', debouncedResizeHandler);
+  }, [debouncedResizeHandler]);
 
   return (
     <WindowSizeContext.Provider value={{ width, height, isMobile }}>
