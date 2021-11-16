@@ -1,9 +1,6 @@
 import React, { FormEvent, useCallback, useState } from 'react';
-import { logEvent } from 'firebase/analytics';
 
-import { useCart } from '@Hooks/Cart';
-
-import { analyticsInstance } from '@Services/firebase';
+import { useCart } from '@Hooks/useCart';
 
 import { Button } from '@Components/shared/Button';
 import { Chip } from '@Components/shared/Chip';
@@ -22,10 +19,6 @@ export const Details: React.FC = () => {
       e.preventDefault();
       // eslint-disable-next-line no-console
       console.log(quantity);
-
-      logEvent(analyticsInstance, 'add_to_cart', {
-        items: [{ item_id: 'teste', quantity }],
-      });
     },
     [quantity],
   );

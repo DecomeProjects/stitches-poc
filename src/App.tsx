@@ -1,5 +1,4 @@
 import React from 'react';
-import './services/firebase';
 
 import { AppProvider } from '@Hooks';
 import { Overview } from '@Pages/Overview';

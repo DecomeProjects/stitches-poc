@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useCart } from '@Hooks/Cart';
+import { useCart } from '@Hooks/useCart';
 
 import itemImage from '@Assets/images/image-product-1-thumbnail.jpg';
 

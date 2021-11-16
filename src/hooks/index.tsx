@@ -1,6 +1,12 @@
 import React from 'react';
-import { CartProvider } from './Cart';
+
+import { CartProvider } from './useCart';
+import { FirebaseProvider } from './useFirebase';
 
 export const AppProvider: React.FC = ({ children }) => {
-  return <CartProvider>{children}</CartProvider>;
+  return (
+    <FirebaseProvider>
+      <CartProvider>{children}</CartProvider>
+    </FirebaseProvider>
+  );
 };
