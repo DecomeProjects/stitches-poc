@@ -8,6 +8,7 @@ import React, {
 import { IStitchesConfigCSS } from '@Styles';
 
 import { useDebouncedCallback } from '@Hooks/useDebouncedCallback';
+
 import { Typography } from '../Typography';
 import { IPopoverModalProps, IPopoverPosition } from './hooks';
 

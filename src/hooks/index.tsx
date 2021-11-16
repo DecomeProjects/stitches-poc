@@ -1,12 +1,15 @@
 import React from 'react';
 
-import { CartProvider } from './useCart';
 import { FirebaseProvider } from './useFirebase';
+import { WindowSizeProvider } from './useWindowSize';
+import { CartProvider } from './useCart';
 
 export const AppProvider: React.FC = ({ children }) => {
   return (
     <FirebaseProvider>
-      <CartProvider>{children}</CartProvider>
+      <WindowSizeProvider>
+        <CartProvider>{children}</CartProvider>
+      </WindowSizeProvider>
     </FirebaseProvider>
   );
 };
