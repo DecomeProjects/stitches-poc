@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { IStitchesConfigCSS } from '@Styles';
 
+import { useDebouncedCallback } from '@Hooks/useDebouncedCallback';
 import { Typography } from '../Typography';
 import { IPopoverModalProps, IPopoverPosition } from './hooks';
 
@@ -74,12 +75,14 @@ export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
     return pos;
   }, [position]);
 
+  const debouncedResizeHandler = useDebouncedCallback(handlePosition, 200);
+
   useEffect(() => {
-    handlePosition();
+    debouncedResizeHandler();
 
-    if (window) window.addEventListener('resize', handlePosition);
+    if (window) window.addEventListener('resize', debouncedResizeHandler);
 
-    return () => window.removeEventListener('resize', handlePosition);
+    return () => window.removeEventListener('resize', debouncedResizeHandler);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
