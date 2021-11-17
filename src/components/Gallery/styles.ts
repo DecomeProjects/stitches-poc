@@ -36,6 +36,8 @@ export const Container = styled('section', {
   },
 
   '@sm': {
+    maxWidth: '27.75rem',
+
     aspectRatio: 'initial',
 
     '.swiper-container': {
