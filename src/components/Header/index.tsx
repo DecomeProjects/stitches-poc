@@ -3,6 +3,8 @@ import React, { useCallback, useRef, useState } from 'react';
 import avatarImage from '@Assets/images/image-avatar.png';
 
 import { Cart } from '@Components/Cart';
+import { useWindowSize } from '@Hooks/useWindowSize';
+
 import { IconButton } from '@Components/shared/IconButton';
 import { usePopoverModal } from '@Components/shared/PopoverModal/hooks';
 
@@ -16,6 +18,7 @@ export const Header: React.FC = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const { openModal } = usePopoverModal();
+  const { isDesktop } = useWindowSize();
 
   const handleCloseNavigation = useCallback(() => {
     setIsNavigationOpen(false);
@@ -37,7 +40,9 @@ export const Header: React.FC = () => {
   return (
     <Container>
       <Left>
-        <IconButton icon="Menu" onClick={handleOpenNavigation} />
+        {!isDesktop && (
+          <IconButton icon="Menu" onClick={handleOpenNavigation} />
+        )}
         <a href="/">
           <Logo />
         </a>

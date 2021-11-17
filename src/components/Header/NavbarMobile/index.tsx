@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useWindowSize } from '@Hooks/useWindowSize';
 
 import { IconButton } from '@Components/shared/IconButton';
 import { InPortal } from '@Components/shared/InPortal';
@@ -38,12 +40,20 @@ export const NavbarMobile: React.FC<INavbarMobileProps> = ({
   isOpen,
   handleClose,
 }) => {
+  const { isDesktop } = useWindowSize();
+
+  useEffect(() => {
+    if (isDesktop) handleClose();
+  }, [isDesktop, handleClose]);
+
   return (
     <InPortal id="navbar_container">
       <NavbarOverlay isOpen={isOpen} onClick={handleClose} />
 
       <Container isOpen={isOpen}>
-        <IconButton icon="Close" onClick={handleClose} />
+        <div>
+          <IconButton icon="Close" onClick={handleClose} />
+        </div>
 
         <List>
           {links.map(item => (
