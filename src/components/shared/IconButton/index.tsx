@@ -15,7 +15,7 @@ import { Container, Tooltip } from './styles';
 
 type IIconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   icon: IIConsList;
-  tooltip?: string;
+  tooltip?: string | number;
   css?: IStitchesConfigCSS;
   size?: ISizes;
   iconColor?: IColors;
@@ -58,7 +58,7 @@ const IconButtonBase: React.ForwardRefRenderFunction<
       }}
     >
       <Icon icon={icon} color={actualIconColor} size={size} />
-      {tooltip && <Tooltip>{tooltip}</Tooltip>}
+      {!!tooltip && <Tooltip>{tooltip}</Tooltip>}
     </Container>
   );
 };

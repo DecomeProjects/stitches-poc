@@ -37,6 +37,11 @@ export const globalStyle = globalCss({
     fontSize: '100%',
   },
 
+  '#root': {
+    height: '100vh',
+    overflowX: 'hidden',
+  },
+
   body: {
     position: 'relative',
     backgroundColor: '$white',

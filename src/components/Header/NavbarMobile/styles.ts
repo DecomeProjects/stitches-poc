@@ -5,12 +5,29 @@ export const Container = styled('nav', {
   top: 0,
   left: 0,
 
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+
   width: '70%',
   height: '100%',
   padding: '$md $lg',
 
   background: 'white',
   transition: 'transform 0.2s',
+
+  div: {
+    width: '100%',
+    maxWidth: '22.5rem',
+
+    '@sm': {
+      marginTop: '$sm',
+    },
+
+    '@md': {
+      marginTop: '$base',
+    },
+  },
 
   variants: {
     isOpen: {
@@ -45,6 +62,9 @@ export const List = styled('ul', {
   gap: '$md',
 
   marginTop: '$xxl',
+
+  width: '100%',
+  maxWidth: '22.5rem',
 
   li: {
     listStyle: 'none',
