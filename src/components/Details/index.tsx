@@ -1,6 +1,7 @@
 import React, { FormEvent, useCallback, useState } from 'react';
 
 import { useCart } from '@Hooks/useCart';
+import { useWindowSize } from '@Hooks/useWindowSize';
 
 import { Button } from '@Components/shared/Button';
 import { Chip } from '@Components/shared/Chip';
@@ -13,14 +14,21 @@ export const Details: React.FC = () => {
   const [quantity, setQuantity] = useState(0);
 
   const { add } = useCart();
+  const { isMobile } = useWindowSize();
 
   const handleSubmit = useCallback(
     (e: FormEvent) => {
       e.preventDefault();
-      // eslint-disable-next-line no-console
-      console.log(quantity);
+
+      add({
+        id: '1',
+        name: 'Fall Limited Edition Sneakers',
+        discount: 0.5,
+        quantity,
+        value: 250,
+      });
     },
-    [quantity],
+    [add, quantity],
   );
 
   const handleOnChange = useCallback((value: number) => {
@@ -32,7 +40,7 @@ export const Details: React.FC = () => {
       <Typography
         color="orange"
         letterSpacing="widest"
-        size="xs"
+        size={isMobile ? 'xs' : 'sm'}
         weight="bold"
         uppercase
       >
@@ -40,11 +48,11 @@ export const Details: React.FC = () => {
       </Typography>
 
       <Typography
-        size="lg"
+        size={isMobile ? 'lg' : 'xl'}
         weight="bold"
         tag="h2"
         css={{
-          marginTop: '$tiny',
+          marginTop: isMobile ? '$tiny' : '$md',
         }}
       >
         Fall Limited Edition Sneakers
@@ -52,9 +60,9 @@ export const Details: React.FC = () => {
 
       <Typography
         color="darkGrayishBlue"
-        letterSpacing="tight"
+        letterSpacing={isMobile ? 'tight' : 'normal'}
         css={{
-          marginTop: '$base',
+          marginTop: isMobile ? '$base' : '$xl',
         }}
       >
         These low-profile sneakers are your perfect casual wear companion.
@@ -76,22 +84,17 @@ export const Details: React.FC = () => {
       </PaymentInfo>
 
       <Form onSubmit={handleSubmit}>
-        <NumberInput name="quantity" handleChange={handleOnChange} fluid />
+        <NumberInput
+          name="quantity"
+          handleChange={handleOnChange}
+          fluid={isMobile}
+        />
 
         <Button
-          type="button"
-          onClick={() =>
-            add({
-              id: '1',
-              name: 'Autumn Limited Edition Sneakers',
-              discount: 0.5,
-              quantity,
-              value: 250,
-            })
-          }
+          type="submit"
           label="Add to cart"
           icon="Cart"
-          fluid
+          fluid={isMobile}
         />
       </Form>
     </Container>
