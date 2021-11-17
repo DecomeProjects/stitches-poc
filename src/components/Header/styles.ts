@@ -53,6 +53,7 @@ export const Left = styled(Section, {
 });
 
 export const Right = styled(Section, {
+  alignItems: 'center',
   gap: '$md',
 
   '@md': {

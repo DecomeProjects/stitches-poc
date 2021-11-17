@@ -2,10 +2,11 @@ import React, { useCallback, useRef, useState } from 'react';
 
 import avatarImage from '@Assets/images/image-avatar.png';
 
-import { Cart } from '@Components/Cart';
 import { useWindowSize } from '@Hooks/useWindowSize';
+import { useCart } from '@Hooks/useCart';
 
 import { usePopoverModal } from '@Components/shared/PopoverModal/hooks';
+import { Cart } from '@Components/Cart';
 import { IconButton } from '@Components/shared/IconButton';
 import { Typography } from '@Components/shared/Typography';
 
@@ -43,6 +44,7 @@ export const Header: React.FC = () => {
 
   const { openModal } = usePopoverModal();
   const { isDesktop } = useWindowSize();
+  const { totalOfItems } = useCart();
 
   const handleCloseNavigation = useCallback(() => {
     setIsNavigationOpen(false);
@@ -87,7 +89,12 @@ export const Header: React.FC = () => {
       </Left>
 
       <Right>
-        <IconButton ref={buttonRef} icon="Cart" onClick={handleOpenCart} />
+        <IconButton
+          ref={buttonRef}
+          icon="Cart"
+          onClick={handleOpenCart}
+          tooltip={totalOfItems}
+        />
         <Avatar src={avatarImage} alt="Avatar" />
       </Right>
 
