@@ -59,11 +59,14 @@ export const Gallery: React.FC = () => {
 
   const changeSlide = useCallback(
     (index: number) => () => {
-      setActiveIndex(index);
       swiper?.slideTo(index);
     },
     [swiper],
   );
+
+  const handleSlideChange = useCallback((swiperCore: SwiperCore) => {
+    setActiveIndex(swiperCore.activeIndex);
+  }, []);
 
   return (
     <Container>
@@ -72,6 +75,7 @@ export const Gallery: React.FC = () => {
         slidesPerView={1}
         effect="fade"
         navigation={isMobile}
+        onSlideChange={handleSlideChange}
       >
         {swipperItems.map(item => (
           <SwiperSlide key={item.id}>
