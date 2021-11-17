@@ -11,6 +11,11 @@ export const CartProvider: React.FC = ({ children }) => {
 
   const isEmpty = useMemo(() => !items.length, [items]);
 
+  const totalOfItems = useMemo(
+    () => items.reduce((acc, item) => acc + item.quantity, 0),
+    [items],
+  );
+
   const add = useCallback(
     (item: IItem) => {
       if (!item.quantity) return;
@@ -66,7 +71,7 @@ export const CartProvider: React.FC = ({ children }) => {
   );
 
   return (
-    <CartContext.Provider value={{ items, isEmpty, add, remove }}>
+    <CartContext.Provider value={{ items, totalOfItems, isEmpty, add, remove }}>
       {children}
     </CartContext.Provider>
   );

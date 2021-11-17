@@ -16,7 +16,7 @@ export const Tooltip = styled('span', {
   background: '$orange',
   borderRadius: '$md',
 
-  fontSize: '$sm',
+  fontSize: '$xs',
   fontWeight: '$bold',
   lineHeight: '0.875rem',
 });
