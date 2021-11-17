@@ -1,5 +1,6 @@
-import { useDebouncedCallback } from '@Hooks/useDebouncedCallback';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+
+import { useDebouncedCallback } from '@Hooks/useDebouncedCallback';
 
 import { WindowSizeContext } from '.';
 
@@ -13,6 +14,8 @@ export const WindowSizeProvider: React.FC = ({ children }) => {
   const [height, setHeight] = useState(initialResolution.height);
 
   const isMobile = useMemo(() => width < 768, [width]);
+  const isTablet = useMemo(() => width >= 768 && width < 992, [width]);
+  const isDesktop = useMemo(() => width >= 992, [width]);
 
   const handleWindowResize = useCallback(() => {
     const { innerWidth, innerHeight } = window;
@@ -33,7 +36,9 @@ export const WindowSizeProvider: React.FC = ({ children }) => {
   }, [debouncedResizeHandler]);
 
   return (
-    <WindowSizeContext.Provider value={{ width, height, isMobile }}>
+    <WindowSizeContext.Provider
+      value={{ width, height, isMobile, isTablet, isDesktop }}
+    >
       {children}
     </WindowSizeContext.Provider>
   );
