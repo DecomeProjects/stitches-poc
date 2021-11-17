@@ -25,6 +25,8 @@ export const WindowSizeProvider: React.FC = ({ children }) => {
   const debouncedResizeHandler = useDebouncedCallback(handleWindowResize, 200);
 
   useEffect(() => {
+    debouncedResizeHandler();
+
     if (window) window.addEventListener('resize', debouncedResizeHandler);
 
     return () => window.removeEventListener('resize', debouncedResizeHandler);
