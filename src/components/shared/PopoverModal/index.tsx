@@ -15,13 +15,16 @@ import { IPopoverModalProps, IPopoverPosition } from './hooks';
 import { Container, ModalHeader, ModalMain } from './styles';
 
 type IExtendsPopoverModalProps = IPopoverModalProps & {
+  isOpen: boolean;
   css?: IStitchesConfigCSS;
 };
 
 export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
+  isOpen,
   content,
   title,
   maxWidth = '22.5rem',
+  minWidth = '22.5rem',
   target,
   css,
 }) => {
@@ -34,25 +37,37 @@ export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
       top: topDistance,
       bottom: top,
       left,
+      // eslint-disable-next-line prefer-const
+      width: targetWidth,
     } = target.getBoundingClientRect();
 
     let spacingFromContainer = 32;
-    const lateralSpacing = 8;
+    const lateralSpacing = 24;
 
     const bottom = 0;
 
     if (containerRef.current) {
       const { width, height } = containerRef.current.getBoundingClientRect();
 
-      if (left + width + lateralSpacing > window.innerWidth) {
-        const spacing = (window.innerWidth - width) / 2;
-        left = spacing;
+      const isBiggerOnLeft =
+        left + width / 2 + targetWidth / 2 + lateralSpacing > window.innerWidth;
+
+      if (isBiggerOnLeft) {
+        left = 0;
+      } else {
+        left = left - width / 2 + targetWidth / 2;
       }
 
-      if (
-        top + height > window.innerHeight &&
-        topDistance > height + lateralSpacing
-      ) {
+      const isBiggerOnRight = lateralSpacing * 2 + width > window.innerWidth;
+
+      if (isBiggerOnRight) {
+        left = Math.abs((width - window.innerWidth) / 2);
+      }
+
+      const isBiggerOnTop = top + height > window.innerHeight;
+      const isShorterOnBottom = topDistance > height + lateralSpacing;
+
+      if (isBiggerOnTop && isShorterOnBottom) {
         spacingFromContainer *= -1;
         top = topDistance - height;
       }
@@ -60,9 +75,9 @@ export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
 
     setPosition({
       top: top + spacingFromContainer,
-      right: lateralSpacing,
+      right: left || lateralSpacing,
       bottom,
-      left: Math.max(left, lateralSpacing),
+      left,
     });
   }, [target]);
 
@@ -90,8 +105,10 @@ export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
   return (
     <Container
       ref={containerRef}
+      hidden={!isOpen}
       css={{
         maxWidth,
+        minWidth,
         ...cssPosition,
         ...css,
       }}
