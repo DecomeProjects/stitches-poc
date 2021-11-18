@@ -8,35 +8,12 @@ import { useCart } from '@Hooks/useCart';
 import { usePopoverModal } from '@Components/shared/PopoverModal/hooks';
 import { Cart } from '@Components/Cart';
 import { IconButton } from '@Components/shared/IconButton';
-import { Typography } from '@Components/shared/Typography';
 
 import { Logo } from './Logo';
 import { NavbarMobile } from './NavbarMobile';
 
-import { Avatar, Container, Left, Navigation, Right } from './styles';
-
-const links = [
-  {
-    label: 'Collections',
-    path: '/',
-  },
-  {
-    label: 'Men',
-    path: '/',
-  },
-  {
-    label: 'Women',
-    path: '/',
-  },
-  {
-    label: 'About',
-    path: '/',
-  },
-  {
-    label: 'Contact',
-    path: '/',
-  },
-];
+import { Avatar, Container, Left, Right } from './styles';
+import Desktop from './NavbarMobile/Desktop';
 
 export const Header: React.FC = () => {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
@@ -73,19 +50,7 @@ export const Header: React.FC = () => {
           <Logo />
         </a>
 
-        {isDesktop && (
-          <Navigation>
-            {links.map(link => (
-              <li key={link.label}>
-                <a href={link.path}>
-                  <Typography color="darkGrayishBlue" letterSpacing="tight">
-                    {link.label}
-                  </Typography>
-                </a>
-              </li>
-            ))}
-          </Navigation>
-        )}
+        {isDesktop && <Desktop />}
       </Left>
 
       <Right>

@@ -65,19 +65,6 @@ export const Right = styled(Section, {
   },
 });
 
-export const Navigation = styled('ul', {
-  display: 'flex',
-  gap: '$xl',
-
-  marginLeft: '3.5rem',
-
-  listStyle: 'none',
-
-  a: {
-    textDecoration: 'none',
-  },
-});
-
 export const Avatar = styled('img', {
   width: '$xl',
   height: '$xl',
