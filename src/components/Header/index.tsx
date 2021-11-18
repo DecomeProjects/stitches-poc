@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const { openModal } = usePopoverModal();
+  const { openModal, isOpen } = usePopoverModal();
   const { isDesktop } = useWindowSize();
   const { totalOfItems } = useCart();
 
@@ -59,6 +59,7 @@ export const Header: React.FC = () => {
           icon="Cart"
           onClick={handleOpenCart}
           tooltip={totalOfItems}
+          iconColor={isOpen ? 'orange' : 'darkGrayishBlue'}
         />
         <Avatar src={avatarImage} alt="Avatar" />
       </Right>
