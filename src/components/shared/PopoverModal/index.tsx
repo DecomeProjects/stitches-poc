@@ -15,10 +15,12 @@ import { IPopoverModalProps, IPopoverPosition } from './hooks';
 import { Container, ModalHeader, ModalMain } from './styles';
 
 type IExtendsPopoverModalProps = IPopoverModalProps & {
+  isOpen: boolean;
   css?: IStitchesConfigCSS;
 };
 
 export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
+  isOpen,
   content,
   title,
   maxWidth = '22.5rem',
@@ -103,6 +105,7 @@ export const PopoverModal: React.FC<IExtendsPopoverModalProps> = ({
   return (
     <Container
       ref={containerRef}
+      hidden={!isOpen}
       css={{
         maxWidth,
         minWidth,
