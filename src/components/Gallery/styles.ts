@@ -67,6 +67,7 @@ export const ThumbItem = styled('li', {
   borderRadius: '$md',
   border: '2px solid transparent',
 
+  cursor: 'pointer',
   transition: 'border-color 0.2s',
   overflow: 'hidden',
 
@@ -76,6 +77,10 @@ export const ThumbItem = styled('li', {
     objectFit: 'contain',
 
     transition: 'opacity 0.2s',
+
+    '&:hover': {
+      opacity: 0.6,
+    },
   },
 
   variants: {
