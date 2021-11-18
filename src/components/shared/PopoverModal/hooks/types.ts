@@ -12,6 +12,7 @@ export interface IPopoverModalProps {
   content: ReactNode;
   title?: string;
   maxWidth?: string;
+  minWidth?: string;
 }
 
 export interface IPopoverModalContextData {

@@ -28,7 +28,7 @@ export const PopoverModalProvider: React.FC = ({ children }) => {
         {isOpen && (
           <>
             <ModalOverlay onClick={closeModal} />
-            <PopoverModal {...popoverModalData} />
+            <PopoverModal isOpen={isOpen} {...popoverModalData} />
           </>
         )}
       </InPortal>
